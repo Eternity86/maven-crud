@@ -4,12 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+//import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import com.mchange.v2.c3p0.DriverManagerDataSource;
 
 import ru.eternity074.dao.EmpDao;
 import ru.eternity074.dao.EmpDaoImpl;
@@ -32,10 +34,10 @@ public class SpringWebMvcConfig implements WebMvcConfigurer {
 	public DriverManagerDataSource ds() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 //		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setDriverClassName("org.mariadb.jdbc.Driver");
+		ds.setDriverClass("org.mariadb.jdbc.Driver");
 //		ds.setUrl("jdbc:mysql://192.168.0.107:3306/javatpoint");
-		ds.setUrl("jdbc:mariadb://192.168.0.107:3306/javatpoint");
-		ds.setUsername("aleksdb");
+		ds.setJdbcUrl("jdbc:mariadb://192.168.0.107:3306/test_db");
+		ds.setUser("aleksdb");
 		ds.setPassword("1gjeOjuW");
 		return ds;
 	}
