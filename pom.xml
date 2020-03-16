@@ -151,7 +151,7 @@
 					<url>${deployUrl}</url>
 					<path>/${finName}</path>
 					<username>tomcat-deploy</username>  
-              		<password>G0th1C1986</password>
+              		<password>1</password>
 				</configuration>
 			</plugin>
 
