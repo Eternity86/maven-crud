@@ -19,10 +19,10 @@ public class EmpController {
 	@Autowired
 	EmpDao dao;
 	
-	@GetMapping("/")
-	public String index() {
-		return "index";
-	}
+//	@GetMapping("/")
+//	public String index() {
+//		return "index";
+//	}
 
 	@GetMapping("/empform")
 	public String showForm(Model m) {
@@ -33,10 +33,10 @@ public class EmpController {
 	@PostMapping("/save")
 	public String save(@ModelAttribute("emp") Emp emp) {
 		dao.save(emp);
-		return "redirect:/viewemp";
+		return "redirect:/";
 	}
 
-	@GetMapping("/viewemp")
+	@GetMapping("/")
 	public String viewEmp(Model m) {
 		List<Emp> list = dao.getEmployees();
 		m.addAttribute("list", list);
@@ -53,13 +53,13 @@ public class EmpController {
 	@PostMapping("/editsave")
 	public String editSave(@ModelAttribute("emp") Emp emp) {
 		dao.update(emp);
-		return "redirect:/viewemp";
+		return "redirect:/";
 	}
 
 	@GetMapping("/deleteemp/{id}")
 	public String delete(@PathVariable int id) {
 		dao.delete(id);
-		return "redirect:/viewemp";
+		return "redirect:/";
 	}
 
 }
